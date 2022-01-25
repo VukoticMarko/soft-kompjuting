@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[14]:
+# In[21]:
 
 
 import os
@@ -13,7 +13,7 @@ from glob import glob
 from sklearn.metrics import mean_absolute_error as MAE
 
 
-# In[15]:
+# In[22]:
 
 
 def get_res_from_txt(file):
@@ -28,7 +28,7 @@ def get_res_from_txt(file):
     return hits
 
 
-# In[16]:
+# In[23]:
 
 
 def create_dir(path):
@@ -40,7 +40,7 @@ def create_dir(path):
         print(f"ERROR: creating directory with name {path}")
 
 
-# In[17]:
+# In[24]:
 
 
 def save_frame(video_path, save_dir, gap=1):
@@ -60,7 +60,7 @@ def save_frame(video_path, save_dir, gap=1):
         idx += 1
 
 
-# In[18]:
+# In[25]:
 
 
 def get_frames():
@@ -71,7 +71,7 @@ def get_frames():
         save_frame(path, save_dir, gap=10)
 
 
-# In[19]:
+# In[26]:
 
 
 def lr_edge(frame):
@@ -105,7 +105,7 @@ def lr_edge(frame):
     return l, r            
 
 
-# In[20]:
+# In[27]:
 
 
 def get_ball_coordinates(frame):
@@ -122,7 +122,7 @@ def get_ball_coordinates(frame):
     return balls
 
 
-# In[21]:
+# In[28]:
 
 
 def get_edges():
@@ -139,7 +139,7 @@ def get_edges():
             return l, r
 
 
-# In[22]:
+# In[29]:
 
 
 def calculate_hits():
@@ -185,12 +185,12 @@ def calculate_hits():
     return result # Vracamo recnik sa svim snimcima i njihovim udarcima
 
 
-# In[23]:
+# In[ ]:
 
 
 if __name__ == "__main__":
     # Init programa i pozivanje metoda
-    #get_frames() # Pozivamo metodu secenja snimaka u frejmove
+    get_frames() # Pozivamo metodu secenja snimaka u frejmove
     result = calculate_hits()
     my_result = result.values()
     data = []
@@ -206,22 +206,4 @@ if __name__ == "__main__":
     print(data_result)
     # Racunaj Mean Absolute Error
     print('MAE: ', MAE(data_result, data))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
